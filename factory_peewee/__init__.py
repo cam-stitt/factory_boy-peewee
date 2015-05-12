@@ -20,11 +20,6 @@ class PeeweeModelFactory(base.Factory):
     class Meta:
         abstract = True
 
-    _OLDSTYLE_ATTRIBUTES = base.Factory._OLDSTYLE_ATTRIBUTES.copy()
-    _OLDSTYLE_ATTRIBUTES.update({
-        'FACTORY_DATABASE': 'database',
-    })
-
     @classmethod
     def _setup_next_sequence(cls, *args, **kwargs):
         """Compute the next available PK, based on the 'pk' database field."""
