@@ -11,7 +11,7 @@ else:
 
 setup(
     name='factory_boy-peewee',
-    version='0.0.3',
+    version='0.0.4',
     description='peewee support for factory_boy',
     author='Cameron Stitt',
     author_email='cameron@cam.st',
