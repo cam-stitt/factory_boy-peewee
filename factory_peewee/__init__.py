@@ -26,8 +26,8 @@ class PeeweeModelFactory(base.Factory):
         db = cls._meta.database
         model = cls._meta.model
         pk = getattr(model, model._meta.primary_key.name)
-        max_pk = model.select(
-                        peewee.fn.Max(pk).alias('maxpk')).limit(1).execute()
+        max_pk = (model.select(peewee.fn.Max(pk).alias('maxpk'))
+                       .limit(1).order_by().execute())
         max_pk = [mp.maxpk for mp in max_pk][0]
         if isinstance(max_pk, int):
             return max_pk + 1 if max_pk else 1
